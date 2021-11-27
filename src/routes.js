@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Home from './views/Home';
+import Categories from './views/Categories';
 import Error404 from './views/Error'
 
 import Header from './components/Header'
@@ -12,6 +13,7 @@ const RouteComponent = () => {
       <Header />
         <Routes>
           <Route path="/home" element={<Home />} />
+          <Route path="/categories/:category" element={<Categories />} />
           <Route path="*"     element={<Error404 />} />
         </Routes>
       <Footer />
