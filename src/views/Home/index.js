@@ -1,8 +1,6 @@
 import React, {useEffect, useState} from 'react';
-
 import api from '../../services/api';
-
-import Loader from '../../assets/loader.gif'
+import Loader from '../../assets/load.gif'
 
 const App = () => {
   const [data, setData] = useState({});
@@ -17,20 +15,21 @@ const App = () => {
     .catch( e => console.error(e))
     .finally( () => setTimeout(() => {
       setIsLoad(false)
-    }, 2500))
+    }, 5000))
   }, [])
 
-  if(isLoad) {
+  if(isLoad){
     return(
       <div className="loader">
-        <img src={Loader} alt="Loader" />
+        <img src={Loader} alt="Loading" />
       </div>
     )
   }
 
   return(
     <div className="home-component">
-      <h1>Joke</h1>
+      <h1>E ai seu abestado!</h1>
+      <h2>Olha essa piada:</h2>
       <div className="jokes">
         <img src={data?.icon_url} alt={data?.value} />
         <h3>{data?.value}</h3>
